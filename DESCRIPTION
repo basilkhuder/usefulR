@@ -1,0 +1,23 @@
+Package: tidyverseX
+Title: Load a bunch of tidyverse packages at once
+Version: 1.0.0
+Authors@R: 
+    person(given = "Test",
+           family = "Test",
+           role = c("aut", "cre"),
+	   email = "test@test.123")
+
+Description: Load a bunch of tidyverse packages ot once. 
+Encoding: UTF-8
+LazyData: true
+biocViews:
+Depends:
+	tidyverse,
+  janitor,
+  glue,
+  widyr,
+  modelr,
+  broom,
+  readxl,
+  hms,
+  lubridate
