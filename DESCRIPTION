@@ -1,5 +1,5 @@
 Package: tidyverseX
-Title: Load a bunch of tidyverse packages at once
+Title: Load a bunch of tidyverse (and tidyverse-esque) packages at once
 Version: 1.0.0
 Authors@R: 
     person(given = "Test",
@@ -13,11 +13,12 @@ LazyData: true
 biocViews:
 Depends:
 	tidyverse,
-  janitor,
-  glue,
-  widyr,
-  modelr,
-  broom,
-  readxl,
-  hms,
-  lubridate
+  	janitor,
+  	glue,
+  	widyr,
+  	modelr,
+  	broom,
+  	readxl,
+  	hms,
+  	lubridate,
+	magrittr
