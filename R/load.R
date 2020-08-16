@@ -8,4 +8,5 @@ loadR <- function() {
   library(readxl)
   library(hms)
   library(lubridate)
+  library(magrittr)
 } 
