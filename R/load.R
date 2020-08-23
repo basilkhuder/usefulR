@@ -9,4 +9,5 @@ loadR <- function() {
   library(hms)
   library(lubridate)
   library(magrittr)
+  library(rstatix)
 } 
