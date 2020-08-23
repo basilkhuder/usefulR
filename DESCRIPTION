@@ -1,6 +1,6 @@
 Package: tidyverseX
 Title: Load a bunch of tidyverse (and tidyverse-esque) packages at once
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(given = "Test",
            family = "Test",
@@ -20,4 +20,5 @@ Depends:
   	readxl,
   	hms,
   	lubridate,
-	magrittr
+	magrittr,
+	rstatix
