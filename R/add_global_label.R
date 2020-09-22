@@ -1,4 +1,8 @@
-add_global_label <- function(pwobj, Xlab = NULL, Ylab = NULL, Xgap = 0.03, Ygap = 0.03, ...) {
+add_global_label <- function(pwobj, 
+                             Xlab = NULL, 
+                             Ylab = NULL, 
+                             Xgap = 0.03, 
+                             Ygap = 0.03, ...) {
     ylabgrob <- patchwork::plot_spacer()
     if (!is.null(Ylab)) {
         ylabgrob <- ggplot() +
