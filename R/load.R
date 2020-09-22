@@ -10,4 +10,5 @@ loadR <- function() {
   library(lubridate)
   library(magrittr)
   library(rstatix)
+  library(patchwork)
 } 
