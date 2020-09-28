@@ -1,3 +1,5 @@
+#Code from Thomas Neitmann: https://thomasadventure.blog/
+
 `:=` <- function(lhs, rhs) {
   var <- deparse(substitute(lhs))
   ifelse(exists(var, parent.frame(), inherits = FALSE),
