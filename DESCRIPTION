@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
 	   email = "test@test.123")
 
-Description: Load a bunch of tidyverse packages ot once. 
+Description: usefulR
 Encoding: UTF-8
 LazyData: true
 Imports:
