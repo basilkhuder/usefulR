@@ -1,3 +1,3 @@
-export(load)
+export(install_packages.R)
 export(web_browse)
 export(add_global_label)
