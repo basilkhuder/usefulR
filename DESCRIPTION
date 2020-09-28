@@ -1,5 +1,5 @@
-Package: tidyversePlus
-Title: Load a bunch of tidyverse (and tidyverse-esque) packages at once
+Package: usefulR
+Title: usefulR functions
 Version: 1.0.1
 Authors@R: 
     person(given = "Test",
@@ -10,7 +10,7 @@ Authors@R:
 Description: Load a bunch of tidyverse packages ot once. 
 Encoding: UTF-8
 LazyData: true
-Depends:
+Imports:
 	tidyverse,
   	janitor,
   	glue,
