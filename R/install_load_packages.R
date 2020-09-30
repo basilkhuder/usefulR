@@ -32,7 +32,7 @@ install_load_packages <- function(cran_pkg = NULL,
     if (!identical(gh_pkg_install, "character(0)")) {
       
     }
-    devtools::install_github(gh_pkg_install, update = update_bioc)
+    devtools::install_github(gh_pkg_install)
   }
   
   invisible(sapply(c(cran_pkg, bioconductor_pkg, github_pkg), function(x)
