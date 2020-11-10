@@ -28,6 +28,6 @@ t.tbl_df <-  function(df,
   return(df_transpose)
 }
 
-t.data.table <- function(df) { 
-  return(data.table::transpose(df))
+t.data.table <- function(df, ...) { 
+  return(data.table::transpose(df, ...))
 } 
