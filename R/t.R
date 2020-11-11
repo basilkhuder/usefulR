@@ -1,5 +1,4 @@
-t <- function(x,
-              ...) {
+t <- function(x, ...) {
   UseMethod("t")
 }
 
