@@ -49,8 +49,7 @@ web_browse.pheatmap <- function(x,
                                 save = FALSE,
                                 file_name = NULL,
                                 ...) {
-  file = tempfile(paste0(deparse(substitute(x)), "_"),
-                  fileext = ".png")
+  file = tempfile(paste0(deparse(substitute(x)), "_"), fileext = ".png")
   
   if (isTRUE(save)) {
     if (is.null(file_name)) {
