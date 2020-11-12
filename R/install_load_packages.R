@@ -1,7 +1,8 @@
 install_load_packages <- function(cran_pkg = NULL,
                                   bioconductor_pkg = NULL,
                                   github_pkg = NULL,
-                                  update_bioc = FALSE) {
+                                  update_bioc = FALSE,
+                                  def_func = NULL) {
   if (!is.null(cran_pkg)) {
     cran_pkg_install <-
       cran_pkg[!cran_pkg %in% installed.packages()[, "Package"]]
@@ -37,5 +38,10 @@ install_load_packages <- function(cran_pkg = NULL,
   
   invisible(sapply(c(cran_pkg, bioconductor_pkg, github_pkg), function(x)
     require(x, character.only = TRUE)))
+  
+  if (!is.null(def_func)) {
+    purrr::walk(def_func, ~ 
+                  assign(.x[1], value = eval(parse(text = .x[2])), envir = .GlobalEnv))
+  }
+  
 }
-
