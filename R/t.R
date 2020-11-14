@@ -3,7 +3,6 @@ t <- function(x, ...) {
 }
 
 t.tbl_df <-  function(x, 
-                      col_types = NULL,
                       ...) {
   
   df_transpose <- data.table::transpose(x)
