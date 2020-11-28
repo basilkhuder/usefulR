@@ -29,7 +29,7 @@ as_tibble.matrix <- function(matrix,
   dimnames(matrix) <- NULL
   df <- as.data.frame(matrix)
   
-  if (isTRUE(rn_as_col)) {
+  if (rn_as_col) {
     colnames(df) <- mat_attr[[2]]
     df <-
       dplyr::mutate(df,!!as.name(rn) := mat_attr[[1]], .before = everything())
