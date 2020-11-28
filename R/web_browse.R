@@ -15,7 +15,7 @@ web_browse.gg <- function(x,
                           save = FALSE,
                           file_name = NULL,
                           ...) {
-  if (isTRUE(save)) {
+  if ((save) {
     if (is.null(file_name)) {
       file = paste0(gsub("-", "", Sys.Date()), "_image_output.png")
     } else {
@@ -51,7 +51,7 @@ web_browse.pheatmap <- function(x,
                                 ...) {
   file = tempfile(paste0(deparse(substitute(x)), "_"), fileext = ".png")
   
-  if (isTRUE(save)) {
+  if (save) {
     if (is.null(file_name)) {
       file = paste0(gsub("-", "", Sys.Date()), "_image_output.png")
     } else {
