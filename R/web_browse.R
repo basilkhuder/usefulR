@@ -15,7 +15,7 @@ web_browse.gg <- function(x,
                           save = FALSE,
                           file_name = NULL,
                           ...) {
-  if ((save) {
+  if (save) {
     if (is.null(file_name)) {
       file = paste0(gsub("-", "", Sys.Date()), "_image_output.png")
     } else {
