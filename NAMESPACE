@@ -1,6 +1,5 @@
 export(install_load_packages)
 export(web_browse)
-export(add_global_label)
 export(t)
 export(poutput)
-export(as_tibble)
+export(as_tibble.matrix)
