@@ -1,3 +1,6 @@
 export(install_packages.R)
 export(web_browse)
 export(add_global_label)
+export(t)
+export(poutput)
+export(as_tibble)
