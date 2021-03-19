@@ -1,4 +1,4 @@
-export(install_packages.R)
+export(install_load_packages)
 export(web_browse)
 export(add_global_label)
 export(t)
