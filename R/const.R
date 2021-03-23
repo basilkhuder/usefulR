@@ -3,7 +3,8 @@
 `%<-%` <- function(lhs, rhs){
   let <- deparse(substitute(lhs))
   if (exists(let, parent.frame(), inherits = FALSE)) { 
-    stop (glue::glue("The Variable you are trying to create, {let}, already exists."))
+    stop (glue::glue("The variable you are trying to create, {let}, already exists. 
+                     Please choose another name or use the regular assignment operator to overwrite this variable."))
     } else { 
       assign(let, rhs, parent.frame())
     } 
