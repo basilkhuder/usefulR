@@ -70,7 +70,12 @@ poutput <- function(df,
                "pdf" = ".pdf",
                "word" = ".docx")
   file_name <- paste0(file_name, outputs[output_type])
-  flextable::save_as_image(pobj, path = file_name, webshot = "webshot2")
+  
+  ifelse(
+    output_type == "word",
+    flextable::save_as_docx(pobj, path = file_name, webshot = "webshot2"),
+    flextable::save_as_image(pobj, path = file_name, webshot = "webshot2")
+  )
   print(glue::glue("File saved as {file_name}"))
   browseURL(file_name)
 }
@@ -132,6 +137,7 @@ poutput.theme <-
     if (!is.null(inner_border)) {
       ib <- officer::fp_border(color = "gray", width = 1)
       pobj <-
+        
         flextable::border_inner_h(pobj, border = ib, part = "body")
     }
     
