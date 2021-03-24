@@ -64,27 +64,15 @@ poutput <- function(df,
     file_name <- stringr::str_extract(file_name, pattern = "^\\w*")
   }
   
-  if (output_type == "png") {
-    file_name <- paste0(file_name, ".png")
-    flextable::save_as_image(pobj, path = file_name, webshot = "webshot2")
-    print(glue::glue("File saved as {file_name}"))
-    browseURL(file_name)
-  }
-  
-  if (output_type == "pdf") {
-    file_name <- paste0(file_name, ".pdf")
-    flextable::save_as_image(pobj, path = file_name, webshot = "webshot2")
-    print(glue::glue("File saved as {file_name}"))
-    browseURL(file_name)
-  }
-  
-  if (output_type == "word") {
-    file_name <- paste0(file_name, ".docx")
-    flextable::save_as_docx(pobj, path = file_name, webshot = "webshot2")
-    print(glue::glue("File saved as {file_name}"))
-    browseURL(file_name)
-  }
-  
+  output_type <-
+    gsub(pattern = "\\.", replacement = "", output_type)
+  outputs <- c("png" = ".png",
+               "pdf" = ".pdf",
+               "word" = ".docx")
+  file_name <- paste0(file_name, outputs[output_type])
+  flextable::save_as_image(pobj, path = file_name, webshot = "webshot2")
+  print(glue::glue("File saved as {file_name}"))
+  browseURL(file_name)
 }
 
 poutput.theme <-
@@ -139,15 +127,12 @@ poutput.theme <-
     if (!is.null(extra_align)) {
       pobj <-
         flextable::align(pobj, align = extra_align[[1]], j = extra_align[[2]])
-      
-      
     }
     
     if (!is.null(inner_border)) {
       ib <- officer::fp_border(color = "gray", width = 1)
       pobj <-
         flextable::border_inner_h(pobj, border = ib, part = "body")
-      
     }
     
     return(pobj)
