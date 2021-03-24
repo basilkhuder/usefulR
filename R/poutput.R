@@ -1,7 +1,7 @@
 poutput <- function(df,
                     cap = "",
                     fs = 15,
-                    cw = .75,
+                    cw = 2,
                     ch = .25,
                     fch = "black",
                     output_type = NULL,
@@ -11,10 +11,7 @@ poutput <- function(df,
                     add_footnote = NULL,
                     add_header_bot = NULL,
                     extra_align = NULL,
-                    #first param of extra_align is for type of alignment, second is for column number
-                    #extra_align = list(c("left", "center"), c(1,2))
                     inner_border = NULL) {
-  
   pobj <- flextable::flextable(df)
   
   if (!is.null(add_footnote)) {
@@ -42,7 +39,7 @@ poutput <- function(df,
                   extra_align,
                   inner_border)
   
-  if (length(cw) > ncol(df) | length(cw) < ncol(df)) {
+  if (length(cw) != ncol(df) && length(cw) != 1) {
     stop("Column width must equal the amount of columns or be a single number")
   } else if (length(cw) == 1) {
     pobj <- flextable::width(pobj, width = cw)
@@ -103,7 +100,8 @@ poutput.theme <-
     
     if (theme == "default") {
       pobj <- flextable::bold(pobj, part = "header")
-      pobj <- flextable::align(pobj, align = "center", part = "all")
+      pobj <-
+        flextable::align(pobj, align = "center", part = "all")
       pobj <- flextable::font(pobj, fontname = font, part = "all")
     }
     
@@ -114,8 +112,24 @@ poutput.theme <-
       pobj <-
         flextable::hline_top(pobj, border = border, part = "all")
       pobj <- flextable::bold(pobj, part = "header")
-      pobj <- flextable::align(pobj, align = "center", part = "all")
+      pobj <-
+        flextable::align(pobj, align = "center", part = "all")
       pobj <- flextable::font(pobj, fontname = font, part = "all")
+    }
+    
+    if (theme == "theme_one") {
+      border <- officer::fp_border(color = "black", width = 2)
+      pobj <- flextable::bold(pobj, part = "header")
+      pobj <-
+        flextable::align(pobj, align = "center", part = "all")
+      pobj <- flextable::font(pobj, fontname = font, part = "all")
+      pobj <- flextable::hline_top(pobj, border = border)
+      pobj <-
+        flextable::align(pobj, align = "left", j = 1)
+      ib <- officer::fp_border(color = "gray", width = 1)
+      pobj <-
+        flextable::border_inner_h(pobj, border = ib, part = "body")
+      
     }
     
     if (!is.null(add_footnote)) {
@@ -123,10 +137,9 @@ poutput.theme <-
     }
     
     if (!is.null(extra_align)) {
-      for (i in seq_along(extra_align)) {
-        pobj <-
-          flextable::align(pobj, align = extra_align[[1]][[i]], j = extra_align[[2]][[i]])
-      }
+      pobj <-
+        flextable::align(pobj, align = extra_align[[1]], j = extra_align[[2]])
+      
       
     }
     
