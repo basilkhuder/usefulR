@@ -137,7 +137,6 @@ poutput.theme <-
     if (!is.null(inner_border)) {
       ib <- officer::fp_border(color = "gray", width = 1)
       pobj <-
-        
         flextable::border_inner_h(pobj, border = ib, part = "body")
     }
     
