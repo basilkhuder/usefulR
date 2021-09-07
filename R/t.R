@@ -1,7 +1,3 @@
-t <- function(x, ...) {
-  UseMethod("t")
-}
-
 t.tbl_df <-  function(x, 
                       ...) {
   
