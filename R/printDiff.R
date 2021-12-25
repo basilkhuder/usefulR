@@ -32,7 +32,7 @@ printDiff.list <- function(diff_list, names = NULL) {
     
     cat("\n There are",
         length(diff_list[[which(!empty_char)]]),
-        "differences between",
+        "difference(s) between",
         names[which(!empty_char)],
         "and",
         names[which(empty_char)])
@@ -50,7 +50,7 @@ printDiff.list <- function(diff_list, names = NULL) {
   } else {
     cat("\n There are",
         length(diff_list[[1]]),
-        "differences between",
+        "difference(s) between",
         names[[1]],
         "and",
         names[[2]])
